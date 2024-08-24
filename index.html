@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <ul style="margin: 0px;">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="content">
+            <p>12</p>
+            <p>3</p>
+            <p>6</p>
+            <p>9</p>
+            <div class="hours"></div>
+            <div class="minutes"></div>
+            <div class="seconds"></div>
+            <div class="dgwatch">hallo</div>
+            
+
+
+
+        </div>
+      
+    </div>
+    <h1>Time is so precious. please do not west it</h1>
+    <script>
+        const allli = document.querySelectorAll("li")
+        let angel = 30;
+        allli.forEach((value) => {
+            value.style.transform = `translate(-50%, -50%) rotate(${angel}deg)`
+            angel += 30;
+        })
+
+        const hourstick = document.querySelector(".hours")
+        const minstick= document.querySelector(".minutes")
+        const secstick = document.querySelector(".seconds")
+        const dgwatch = document.querySelector(".dgwatch");
+        const runclock = ()=> {
+            let time = new Date();
+            let seconds = time.getSeconds();
+            let minutes = time.getMinutes();
+            let hours = time.getHours(); 
+            hours = (hours > 12) ? hours -12 : hours
+            const hourtominute = (hours*60)+minutes
+     
+            
+            secstick.style.transform=`translatex(-50%) rotate(${seconds*6}deg)`
+            hourstick.style.transform=`translateX(-50%) rotate(${hourtominute * 0.5}deg)`
+            minstick.style.transform = `translateX(-50%) rotate(${minutes * 6}deg)`
+            dgwatch.innerHTML = hours+":"+minutes+":"+seconds
+            
+        }
+        setInterval(runclock, 1000)
+
+    </script>
+
+
+</body>
+
+</html>
